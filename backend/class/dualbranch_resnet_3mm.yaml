@@ -1,0 +1,61 @@
+seed: 42
+
+model_type: dual_timm
+
+image_backbone_name: resnet50
+mask_backbone_name: resnet18
+pretrained: true
+
+freeze_image_backbone: false
+freeze_mask_backbone: false
+
+img_size: 224
+
+sample_mode: image_mask_metrics
+mask_size: 224
+
+output_dir: outputs/dualbranch_resnet_3mm
+
+train_csv: metadata/mask_3mm_train.csv
+val_csv: metadata/mask_3mm_val.csv
+test_csv: metadata/mask_3mm_test.csv
+
+image_cols:
+  - orig_path
+
+label_col: label_id
+label_name_col: label_name
+num_classes: 4
+
+metrics_cols:
+  - faz_area_px
+  - faz_perim_px
+  - faz_circularity
+  - rv_density
+  - rv_flow_area_px
+  - "rv_line_density_px-1"
+  - rv_branch_points
+  - faz300_sim_density
+
+metrics_hidden_dim: 128
+image_feat_dim: 512
+mask_feat_dim: 256
+
+dropout: 0.2
+
+batch_size: 6
+grad_accum_steps: 1
+num_workers: 0
+
+epochs: 30
+lr: 1.0e-4
+weight_decay: 1.0e-4
+warmup_ratio: 0.05
+max_grad_norm: 1.0
+
+mixed_precision: fp16
+
+class_weight_mode: balanced
+metric_for_best: balanced_accuracy
+early_stop_patience: 8
+save_every_epoch: false

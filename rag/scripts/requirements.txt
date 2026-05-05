@@ -1,0 +1,7 @@
+langchain==0.3.0
+langchain-community==0.3.0
+langchain-chroma==0.1.4
+chromadb==0.5.3      # 降级到 0.5.3 以适配 langchain-chroma
+pypdf==5.0.0
+zhipuai>=2.1.5       # 使用 >= 让 pip 自动寻找最新的日期版本
+conda env create -f environment.yml

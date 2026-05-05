@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# Node
+node_modules/
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# 压缩包和文档
+*.zip
+*.rar
+*.7z
+*.pdf
+
+# 模型/权重文件，不上传 GitHub
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.ckpt
+
+# 常见模型目录
+rag/models/
+backend/pth/
+
+# 日志缓存
+*.log
+.cache/
